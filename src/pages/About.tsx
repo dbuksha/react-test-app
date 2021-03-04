@@ -1,6 +1,6 @@
-import React  from "react";
+import React, { FunctionComponent } from 'react';
 
-export const About = () => (
+export const About: FunctionComponent = () => (
   <div className="jumbotron">
     <div className="container">
       <h1 className="display-4">The best React App</h1>
@@ -9,4 +9,4 @@ export const About = () => (
       </p>
     </div>
   </div>
-)
+);
