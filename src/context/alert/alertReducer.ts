@@ -1,5 +1,5 @@
 import { HideAlertAction, ShowAlertAction } from './alertActions';
-import { Alert } from '../../entities/Alert';
+import { IAlert } from '../../entities/Alert';
 import { AlertActionType } from '../actionTypes';
 
 type AlertActions = ShowAlertAction | HideAlertAction;
@@ -16,7 +16,7 @@ type AlertActions = ShowAlertAction | HideAlertAction;
 //   return handle(state, action);
 // };
 
-export const alertReducer = (state: Alert, action: AlertActions) => {
+export const alertReducer = (state: IAlert, action: AlertActions): IAlert => {
   switch (action.type) {
     case AlertActionType.SHOW: {
       return {

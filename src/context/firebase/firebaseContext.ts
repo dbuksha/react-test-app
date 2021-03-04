@@ -10,7 +10,7 @@ export interface FirebaseContextState {
   fetchNotes: () => void;
 }
 
-export const firebaseContextDefaultValue: FirebaseContextState = {
+export const initFirebaseContextValue: FirebaseContextState = {
   notes: [],
   loading: false,
   showLoader: () => null,
@@ -18,4 +18,4 @@ export const firebaseContextDefaultValue: FirebaseContextState = {
   removeNote: () => null,
   fetchNotes: () => null,
 };
-export const FirebaseContext = createContext<FirebaseContextState>(firebaseContextDefaultValue);
+export const FirebaseContext = createContext<FirebaseContextState>(initFirebaseContextValue);

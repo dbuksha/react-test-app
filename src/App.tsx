@@ -6,13 +6,13 @@ import { Alert } from './components/Alert';
 import { Navbar } from './components/Navbar';
 import { Routes } from './router/Routes';
 
-// contexts
+// stores
 import { AlertStateProvider } from './context/alert/AlertStore';
-import { FirebaseState } from './context/firebase/FirebaseStore';
+import { FirebaseStateProvider } from './context/firebase/FirebaseStore';
 
 function App() {
   return (
-    <FirebaseState>
+    <FirebaseStateProvider>
       <AlertStateProvider>
         <Router>
           <Navbar />
@@ -22,7 +22,7 @@ function App() {
           </div>
         </Router>
       </AlertStateProvider>
-    </FirebaseState>
+    </FirebaseStateProvider>
   );
 }
 

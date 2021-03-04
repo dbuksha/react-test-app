@@ -1,4 +1,4 @@
-export interface Alert {
+export interface IAlert {
   type?: string;
   text: string;
   visible: boolean;

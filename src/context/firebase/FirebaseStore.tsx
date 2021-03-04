@@ -1,14 +1,14 @@
 import React, { useContext, useReducer } from 'react';
 import axios from 'axios';
 
-import { FirebaseContext, firebaseContextDefaultValue } from './firebaseContext';
+import { FirebaseContext, initFirebaseContextValue } from './firebaseContext';
 import { firebaseReducer } from './firebaseReducer';
 import { FirebaseActionType } from '../actionTypes';
 
 const url = process.env.REACT_APP_DB_URL;
 
-export const FirebaseState: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(firebaseReducer, firebaseContextDefaultValue);
+export const FirebaseStateProvider: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(firebaseReducer, initFirebaseContextValue);
 
   const showLoader = () => dispatch({ type: FirebaseActionType.SHOW_LOADER });
 
