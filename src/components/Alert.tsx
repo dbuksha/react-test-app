@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { useAlertStore } from '../context/alert/AlertStore';
+import { AlertContext } from '../context/alert/alertContext';
 
 export const Alert: React.FC = () => {
-  const { alert, hide } = useAlertStore();
+  const { alert, hide } = useContext(AlertContext);
   if (!alert) return null;
 
   return (

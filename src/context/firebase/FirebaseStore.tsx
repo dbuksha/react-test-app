@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import axios from 'axios';
 
 import { FirebaseContext, initFirebaseContextValue } from './firebaseContext';

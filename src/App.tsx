@@ -10,20 +10,18 @@ import { Routes } from './router/Routes';
 import { AlertStateProvider } from './context/alert/AlertStore';
 import { FirebaseStateProvider } from './context/firebase/FirebaseStore';
 
-function App() {
-  return (
-    <FirebaseStateProvider>
-      <AlertStateProvider>
-        <Router>
-          <Navbar />
-          <div className="container pt-4">
-            <Alert />
-            <Routes />
-          </div>
-        </Router>
-      </AlertStateProvider>
-    </FirebaseStateProvider>
-  );
-}
+const App: React.FC = () => (
+  <FirebaseStateProvider>
+    <AlertStateProvider>
+      <Router>
+        <Navbar />
+        <div className="container pt-4">
+          <Alert />
+          <Routes />
+        </div>
+      </Router>
+    </AlertStateProvider>
+  </FirebaseStateProvider>
+);
 
 export default App;

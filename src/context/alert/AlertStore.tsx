@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useReducer } from 'react';
 
 import { alertReducer } from './alertReducer';
 
@@ -25,12 +25,4 @@ export const AlertStateProvider: React.FC = ({ children }) => {
       {children}
     </AlertContext.Provider>
   );
-};
-
-export const useAlertStore = () => {
-  const contextValue = useContext(AlertContext);
-  if (contextValue === null) {
-    throw Error('Context has not been Provided.');
-  }
-  return contextValue;
 };
