@@ -1,11 +1,8 @@
-import { AlertActionType } from '../actionTypes';
+import { HIDE_ALERT, SHOW_ALERT } from '../actionTypes';
 import { IAlert } from '../../entities/Alert';
 
-export type ShowAlertAction = {
-  type: AlertActionType.SHOW;
-  payload: IAlert;
-};
+export const showAlert = (payload: IAlert) => ({ type: SHOW_ALERT, payload } as const);
+export const hideAlert = () => ({ type: HIDE_ALERT });
 
-export type HideAlertAction = {
-  type: AlertActionType.HIDE;
-};
+export type ShowAlertAction = ReturnType<typeof showAlert>;
+export type HideAlertAction = ReturnType<typeof hideAlert>;

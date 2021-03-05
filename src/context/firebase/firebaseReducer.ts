@@ -5,7 +5,7 @@ import {
   ShowLoaderAction,
 } from './firebaseActions';
 
-import { FirebaseActionType } from '../actionTypes';
+import { SHOW_LOADER, ADD_NOTE, FETCH_NOTES, REMOVE_NOTE } from '../actionTypes';
 
 import { FirebaseContextState } from './firebaseContext';
 
@@ -16,26 +16,26 @@ export const firebaseReducer = (
   action: FirebaseActions,
 ): FirebaseContextState => {
   switch (action.type) {
-    case FirebaseActionType.SHOW_LOADER: {
+    case SHOW_LOADER: {
       return {
         ...state,
         loading: true,
       };
     }
-    case FirebaseActionType.ADD_NOTE: {
+    case ADD_NOTE: {
       return {
         ...state,
         notes: [...state.notes, action.payload],
       };
     }
-    case FirebaseActionType.FETCH_NOTES: {
+    case FETCH_NOTES: {
       return {
         ...state,
         notes: action.payload,
         loading: false,
       };
     }
-    case FirebaseActionType.REMOVE_NOTE: {
+    case REMOVE_NOTE: {
       return {
         ...state,
         notes: state.notes.filter((n) => n.id !== action.payload),
