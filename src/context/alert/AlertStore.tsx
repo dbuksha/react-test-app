@@ -3,15 +3,15 @@ import React, { useReducer } from 'react';
 import { alertReducer } from './alertReducer';
 
 import { AlertContext, initAlertValue } from './alertContext';
-import { hideAlert, showAlert } from './alertActions';
+import { alertActions } from './alertActions';
 
 export const AlertStateProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(alertReducer, initAlertValue);
 
-  const hide = () => dispatch(hideAlert());
+  const hide = () => dispatch(alertActions.hide());
 
   const show = (text: string, type = 'warning') => {
-    dispatch(showAlert({ text, type, visible: true }));
+    dispatch(alertActions.show({ text, type, visible: true }));
   };
 
   return (

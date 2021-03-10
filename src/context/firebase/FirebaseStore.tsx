@@ -3,19 +3,14 @@ import axios from 'axios';
 
 import { FirebaseContext, initFirebaseContextValue } from './firebaseContext';
 import { firebaseReducer } from './firebaseReducer';
-import {
-  showLoaderAction,
-  fetchNotesAction,
-  addNoteAction,
-  removeNoteAction,
-} from './firebaseActions';
+import { firebaseActions } from './firebaseActions';
 
 const url = process.env.REACT_APP_DB_URL;
 
 export const FirebaseStateProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(firebaseReducer, initFirebaseContextValue);
 
-  const showLoader = () => dispatch(showLoaderAction());
+  const showLoader = () => dispatch(firebaseActions.showLoader());
 
   const fetchNotes = async () => {
     showLoader();
@@ -28,7 +23,7 @@ export const FirebaseStateProvider: React.FC = ({ children }) => {
       };
     });
 
-    dispatch(fetchNotesAction(payload));
+    dispatch(firebaseActions.fetchNotes(payload));
   };
 
   const addNote = async (title: string) => {
@@ -44,7 +39,7 @@ export const FirebaseStateProvider: React.FC = ({ children }) => {
         id: res.data.name,
       };
 
-      dispatch(addNoteAction(payload));
+      dispatch(firebaseActions.addNote(payload));
     } catch (e) {
       throw new Error(e.message);
     }
@@ -53,7 +48,7 @@ export const FirebaseStateProvider: React.FC = ({ children }) => {
   const removeNote = async (id: number) => {
     await axios.delete(`${url}/notes/${id}.json `);
 
-    dispatch(removeNoteAction(id));
+    dispatch(firebaseActions.removeNote(id));
   };
 
   return (

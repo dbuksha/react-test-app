@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { FirebaseContext } from '../context/firebase/firebaseContext';
 import { AlertContext } from '../context/alert/alertContext';
 
@@ -7,7 +7,7 @@ export const Form: React.FC = () => {
   const { show } = useContext(AlertContext);
   const { addNote } = useContext(FirebaseContext);
 
-  const submitHandler = (event: SyntheticEvent) => {
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (value.trim()) {

@@ -1,15 +1,8 @@
-import {
-  AddNoteAction,
-  FetchNotesAction,
-  RemoveNoteAction,
-  ShowLoaderAction,
-} from './firebaseActions';
+import { FirebaseActions } from './firebaseActions';
 
 import { SHOW_LOADER, ADD_NOTE, FETCH_NOTES, REMOVE_NOTE } from '../actionTypes';
 
 import { FirebaseContextState } from './firebaseContext';
-
-type FirebaseActions = AddNoteAction | ShowLoaderAction | FetchNotesAction | RemoveNoteAction;
 
 export const firebaseReducer = (
   state: FirebaseContextState,
